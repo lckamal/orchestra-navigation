@@ -1,0 +1,9 @@
+{
+    "name": "Navigation",
+    "description": "Navigation extension for Story CMS",
+    "authors": "Kamal Lamichhane",
+    "url": "http://lkamal.com.np",
+    "version": "0.0.1",
+    "config": {},
+    "provide": ["Lckamal\\Navigation\\NavigationServiceProvider"]
+}
