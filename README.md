@@ -15,11 +15,6 @@ Add folder extension/lckamal on base path
 
 Add the service provider in ```app/config/app.php```.
 
-```php
-'providers' => array(
-    'Lckamal\Navigation\NavigationServiceProvider'
-),
-```
 
 Run ```php artisan dump-autoload``` to reload the autoloader.
 
