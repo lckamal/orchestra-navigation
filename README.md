@@ -20,8 +20,8 @@ Run ```php artisan extension:detect``` and you will see your newly created exten
 ###Usage
 To render navigation on your site add
 
-```
-php Lckamal\Navigation\NavItem::render('abbrev');
+```php
+Lckamal\Navigation\NavItem::render('abbrev');
 ```
 abbrev is the slug of navigation group.
 
@@ -34,4 +34,19 @@ $options = array(
 			'more_class' => 'dropdown-menu',
 		);
 		Lckamal\Navigation\NavItem::render('abbrev', $options);
+```
+
+This will generate menu like this
+```
+	<ul class="menu">
+		<li class="">
+			<a href="home">Home</a>
+		</li>
+		<li class="dropdown">
+			<a href="about-us">About Us</a>
+			<ul class=" dropdown-menu">
+				<li class="services"><a href="">Services</a></li>
+			</ul>
+		</li>
+	</ul>
 ```
