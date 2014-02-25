@@ -26,7 +26,6 @@ class NavigationServiceProvider extends ServiceProvider {
         include "{$path}/events.php";
         include "{$path}/filters.php";
         include "{$path}/routes.php";
-        include "{$path}/helpers.php";
     }
 
     /**
