@@ -20,14 +20,18 @@ Run ```php artisan extension:detect``` and you will see your newly created exten
 ###Usage
 To render navigation on your site add
 
-```php Lckamal\Navigation\NavItem::render('abbrev');```
+```
+php Lckamal\Navigation\NavItem::render('abbrev');
+```
 abbrev is the slug of navigation group.
 
 In addition you can add options for link classes
-```php $options = array(
+```php 
+$options = array(
 			'nav_class' => 'menu',
 			'active_class' => 'active',
 			'dropdown_class' => 'dropdown',
 			'more_class' => 'dropdown-menu',
 		);
-		Lckamal\Navigation\NavItem::render('abbrev', $options);```
+		Lckamal\Navigation\NavItem::render('abbrev', $options);
+```
