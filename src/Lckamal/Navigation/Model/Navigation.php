@@ -27,4 +27,9 @@ class Navigation extends Eloquent
         return $this->belongsTo('Lckamal\\Navigation\\Model\\NavigationGroup','navigation_group_id');
     }
 
+    public function childrens()
+    {
+        return $this->hasMany('Lckamal\\Navigation\\Model\\Navigation', 'parent');
+    }
+
 }
