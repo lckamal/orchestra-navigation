@@ -2,6 +2,7 @@
 
 use Lckamal\Navigation\Model\Navigation;
 use Lckamal\Navigation\Model\NavigationGroup;
+use Orchestra\Story\Model\Content;
 
 class NavItem {
 
@@ -35,7 +36,7 @@ class NavItem {
 		}
 	}
 
-	public static function buildNavigation($items, $options = array())
+	protected static function buildNavigation($items, $options = array())
 	{
 		$hasChildren = false;
 	    $outputHtml = '<ul class="'.$options['nav_class'].' %s">%s</ul>';
@@ -47,8 +48,27 @@ class NavItem {
 	            $hasChildren = true;
 	            $childElem = self::buildNavigation($items, array_merge($options, array('parent' => $item->id, 'has_dropdown' => true)));
 	            $dropdownClass = !empty($childElem) ? $options['dropdown_class'] : '';
+	            
+	            switch ($item->link_type) {
+	            	case 'page':
+	            		$url = url('#');
+	            		$content = Content::find($item->page_id);
+	            		if($content){
+	            			list($type, $slug) = explode('/', $content->slug);
+	            			$url = handles('orchestra/story::/'.$slug);
+	            		}
+	            		break;
 
-	            $childrenHtml .= '<li class="'.$dropdownClass.'"><a href="'.$item->url.'">'.$item->title.'</a>';         
+	            	case 'uri':
+	            		$url = url($item->uri);
+	            		break;
+
+	            	default:
+	            		$url = $item->url;
+	            		break;
+	            }
+	            $childrenHtml .= '<li class="'.$dropdownClass.'">';
+	            $childrenHtml .= '<a href="'.$url.'" target="'.$item->target.'" class="'.$item->class.'">'.$item->title.'</a>';
 	            $childrenHtml .= $childElem;
 	            $childrenHtml .= '</li>';           
 	        }

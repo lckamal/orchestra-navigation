@@ -98,7 +98,7 @@ $(function(){
 				<div class="form-group {{{ $errors->has('target') ? 'has-error' : '' }}}">
 					<label class="control-label col-lg-2" for="target">Target</label>
 					<div class="col-lg-6">
-						{{ Form::select('target', array('selected'=>'Self', '_blank' => 'Blank Page'), Input::old('page_id', isset($navigation) ? $navigation->target : ''), array('class' => 'form-control ')) }}
+						{{ Form::select('target', array('_self'=>'Same Page', '_blank' => 'Blank Page'), Input::old('page_id', isset($navigation) ? $navigation->target : ''), array('class' => 'form-control ')) }}
 						<span class="help-inline">{{{ $errors->first('target', ':message') }}}</span>
 					</div>
 				</div>

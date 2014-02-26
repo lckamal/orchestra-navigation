@@ -29,7 +29,7 @@ class CreateNavigationTable extends Migration {
 			$table->string('uri')->nullable();
 			$table->unsignedInteger('navigation_group_id');
 			$table->integer('position');
-			$table->enum('target', array('selected','_blank'))->default('selected');
+			$table->enum('target', array('_self','_blank'))->default('_self');
 			$table->string('restricted_to')->nullable();
 			$table->string('class', 50)->nullable();
 			$table->timestamps();
