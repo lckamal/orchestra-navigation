@@ -10,17 +10,25 @@ use Orchestra\Support\Str;
 $acl  = Acl::make('orchestra/story');
 $auth = Auth::user();
 
-echo Lckamal\Navigation\NavItem::render('header');
-if ($acl->can("create {$type}") or $acl->can("manage {$type}")) :
-	Site::set('header::add-button', true);
-endif; ?>
-
+//echo Lckamal\Navigation\NavItem::render('header');
+?>
 <div class="row">
 	<div class="twelve columns white rounded box">
 
 			@if ($contents->isEmpty())
 				No records at the moment.
 			@else
+			<div class="well well-sm">
+			<?php if ($acl->can("create {$type}") or $acl->can("manage {$type}")) : ?>
+				<div class="row">
+					<div class="col-md-8"><span class="help-block">Add navigation groups and start adding navigation links inside it.</span></div>
+					<div class="col-md-4 text-right">
+						<a class="btn btn-success btn-sm" href="{{{resources('navigation.groups/create')}}}">Add Navigation Group</a>
+					</div>
+
+				</div>
+			<?php endif; ?>
+			</div>
 			<div class="panel-group" id="accordion">
 			@foreach ($contents as $key => $group)
 			<div class="panel panel-default">

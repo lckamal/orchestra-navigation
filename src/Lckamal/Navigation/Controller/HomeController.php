@@ -49,6 +49,6 @@ class HomeController extends Controller
 
         Site::set('title', 'List of Navigations');
 
-        return View::make('lckamal/navigation::home', compact('contents', 'type'));
+        return View::make('lckamal/navigation::index', compact('contents', 'type'));
     }
 }
