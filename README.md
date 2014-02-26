@@ -19,6 +19,13 @@ Update ```app/start/global.php``` so that Orchestra\Platform is able to detect t
 ```php
 App::make('orchestra.extension.finder')->addPath(base_path().'/extension/*/*/');
 ```
+Update ```composer.json`` and add PSR autoloader on autoload
+```php
+"psr-0": {
+    "Lckamal\\Navigation": "extension/lckamal/navigation/src"
+}
+```
+
 Add folder extension/lckamal on base path and add contents of this repo inside it.
 
 Run ```php artisan dump-autoload``` to reload the autoloader.
