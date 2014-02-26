@@ -10,7 +10,6 @@ use Orchestra\Support\Str;
 $acl  = Acl::make('orchestra/story');
 $auth = Auth::user();
 
-echo Lckamal\Navigation\NavItem::render('header');
 if ($acl->can("create {$type}") or $acl->can("manage {$type}")) :
 	Site::set('header::add-button', true);
 endif; ?>
