@@ -1,0 +1,16 @@
+{
+    "name": "lckamal/orchestra-navigation",
+    "description": "Adds navigation with groups to your website.",
+    "authors": [
+        {
+            "name": "Kamal",
+            "email": "lckamal@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Lckamal": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
