@@ -3,6 +3,14 @@ Navigation for Orchestra Story CMS
 
 Adds navigation with groups to your website.
 
+###Features
+- Multiple navigations on same page
+- Supports Story CMS Page/Post links
+- Supports site link(uri) and external links(url)
+- Define targets (_self or _blank)
+- Multple hierarchy navigation
+- Customizable class options (helps on implementation for css frameworks like bootstrap). 
+ 
 
 ###Installation
 
