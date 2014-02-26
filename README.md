@@ -1,9 +1,10 @@
 Navigation for Orchestra Story CMS
 ====================
 
-Adds navigation with groups to your website.
+Add navigation with groups to your Orchestra Platform website.
 
-###Features
+## Features
+
 - Multiple navigations on same page
 - Supports Story CMS Page/Post links
 - Supports site link(uri) and external links(url)
@@ -12,35 +13,40 @@ Adds navigation with groups to your website.
 - Customizable class options (helps on implementation for css frameworks like bootstrap). 
  
 
-###Installation
+## Installation
 
-Update ```app/start/global.php``` so that Orchestra\Platform is able to detect the extensions.
+To install through composer, simply put the following in your `composer.json` file:
 
-```php
-App::make('orchestra.extension.finder')->addPath(base_path().'/extension/*/*/');
-```
-Update ```composer.json`` and add PSR autoloader on autoload
-```php
-"psr-0": {
-    "Lckamal\\Navigation": "extension/lckamal/navigation/src"
+```json
+{
+	"require": {
+		"lckamal/orchestra-navigation": "dev-master"	
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git://github.com/lckamal/orchestra-navigation"
+		}
+	]
 }
 ```
 
-Add folder extension/lckamal on base path and add contents of this repo inside it.
-
-Run ```php artisan dump-autoload``` to reload the autoloader.
+Run ```composer update``` to install the extension.
 
 Run ```php artisan extension:detect``` and you will see your newly created extension. All extensions will be created under ```extension``` directory.
 
-###Usage
+## Usage
+
 To render navigation on your site add
 
 ```php
 Lckamal\Navigation\NavItem::render('abbrev');
 ```
+
 abbrev is the slug of navigation group.
 
 In addition you can add options for link classes
+
 ```php 
 $options = array(
 			'nav_class' => 'menu',
@@ -52,6 +58,7 @@ $options = array(
 ```
 
 This will generate menu like this
+
 ```
 	<ul class="menu">
 		<li class="">
