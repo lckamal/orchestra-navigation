@@ -12,8 +12,11 @@ class NavItem {
 		'active_class' => 'active',
 		'dropdown_class' => 'dropdown',
 		'more_class' => 'dropdown-menu',
+		'dropdown_toggle_attr' => 'data-toggle="dropdown"'
 	);
-
+	protected static $rootItem = true;
+	protected static $dropdownClass = '';
+	protected static $dropdownAttr = '';
 	public function __construct()
 	{
 		parent::__construct();
@@ -38,15 +41,24 @@ class NavItem {
 
 	protected static function buildNavigation($items, $options = array())
 	{
+		$rootClass = self::$rootItem ? $options['nav_class'] : '';
 		$hasChildren = false;
-	    $outputHtml = '<ul class="'.$options['nav_class'].' %s">%s</ul>';
+    	self::$dropdownClass = '';
+    	self::$dropdownAttr = '';
+	    $outputHtml = '<ul class="'.$rootClass.' %s">%s</ul>';
 	    $childrenHtml = '';
 
 	    foreach($items as $item)
 	    {
 	        if ($item->parent == $options['parent']) {
 	            $hasChildren = true;
+	            self::$rootItem = false;
 	            $childElem = self::buildNavigation($items, array_merge($options, array('parent' => $item->id, 'has_dropdown' => true)));
+	            if(!empty($childElem)) {
+	            	self::$dropdownClass = $options['dropdown_class'];
+	            	self::$dropdownAttr = $options['dropdown_toggle_attr'];
+	            }
+
 	            $dropdownClass = !empty($childElem) ? $options['dropdown_class'] : '';
 	            
 	            switch ($item->link_type) {
@@ -67,8 +79,8 @@ class NavItem {
 	            		$url = $item->url;
 	            		break;
 	            }
-	            $childrenHtml .= '<li class="'.$dropdownClass.'">';
-	            $childrenHtml .= '<a href="'.$url.'" target="'.$item->target.'" class="'.$item->class.'">'.$item->title.'</a>';
+	            $childrenHtml .= '<li class="'.self::$dropdownClass.'">';
+	            $childrenHtml .= '<a href="'.$url.'" target="'.$item->target.'" class="'.$item->class.'" '.self::$dropdownAttr.'>'.$item->title.'</a>';
 	            $childrenHtml .= $childElem;
 	            $childrenHtml .= '</li>';           
 	        }
