@@ -1,4 +1,4 @@
-Navigation for Orchestra Story CMS
+Navigation for Orchestra Platform
 ====================
 
 Add navigation with groups to your Orchestra Platform website.
