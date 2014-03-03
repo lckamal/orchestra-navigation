@@ -34,7 +34,7 @@ To install through composer, simply put the following in your `composer.json` fi
 
 Run ```composer update``` to install the extension.
 
-Run ```php artisan extension:detect``` and you will see your newly created extension. All extensions will be created under ```extension``` directory.
+Run ```php artisan extension:detect``` and you will see your newly created extension.
 
 ## Usage
 
