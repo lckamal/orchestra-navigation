@@ -1,6 +1,7 @@
 <?php namespace Lckamal\Navigation;
 
 use Lckamal\Navigation\Model\Navigation;
+use Lckamal\Navigation\Controller\NavigationsController;
 use Lckamal\Navigation\Model\NavigationGroup;
 use Orchestra\Story\Model\Content;
 
@@ -79,9 +80,8 @@ class NavItem {
 	            		$url = $item->url;
 	            		break;
 	            }
-	            $activeClass = Request::is($url) ? $options['active_class'] : '';
 
-	            $childrenHtml .= '<li class="'.self::$dropdownClass.' '.$activeClass.'">';
+	            $childrenHtml .= '<li class="'.self::$dropdownClass.'">';
 	            $childrenHtml .= '<a href="'.$url.'" target="'.$item->target.'" class="'.$item->class.'" '.self::$dropdownAttr.'>'.$item->title.'</a>';
 	            $childrenHtml .= $childElem;
 	            $childrenHtml .= '</li>';           

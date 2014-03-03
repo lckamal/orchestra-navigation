@@ -192,7 +192,7 @@ class NavigationsController extends Controller
         $navigation->title = Input::get( 'title' );
         $navigation->link_type = Input::get( 'link_type' );
         $navigation->parent = (int)Input::get( 'parent' );
-        $navigation->page_id = Input::get( 'page_id' );
+        $navigation->page_id = (int)Input::get( 'page_id' );
         $navigation->url = Input::get( 'url' );
         $navigation->uri = Input::get( 'uri' );
         $navigation->navigation_group_id = Input::get( 'navigation_group_id' );
@@ -258,4 +258,11 @@ class NavigationsController extends Controller
         }
         return $validation = Validator::make($input, $rules);
     }
+
+
+    public static function requestUrl()
+    {
+        return Request::url();
+    }
+    
 }
