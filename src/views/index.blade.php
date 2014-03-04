@@ -19,7 +19,7 @@ $auth = Auth::user();
 				No records at the moment.
 			@else
 			<div class="well well-sm">
-			<?php if ($acl->can("create {$type}") or $acl->can("manage {$type}")) : ?>
+			<?php if ($acl->can("create navigation") or $acl->can("manage navigation")) : ?>
 				<div class="row">
 					<div class="col-md-8"><span class="help-block">Add navigation groups and start adding navigation links inside it.</span></div>
 					<div class="col-md-4 text-right">
@@ -59,7 +59,7 @@ $auth = Auth::user();
 								<td>{{{ $content->id }}}</td>
 								<td>
 									<strong>
-										@if ($acl->can("manage {$type}") or ($acl->can("update {$type}")))
+										@if ($acl->can("manage navigation") or ($acl->can("update navigation")))
 										<a href="{{ resources("navigation.links/{$content->id}/edit") }}">
 											{{{ $content->title }}}
 										</a>
@@ -71,7 +71,7 @@ $auth = Auth::user();
 								<td>{{{ $content->parent }}}</td>
 								<td>
 									<div class="btn-group">
-									@if ($acl->can("manage {$type}") or ($owner and $acl->can("delete {$type}")))
+									@if ($acl->can("manage navigation") or $acl->can("delete navigation"))
 										<a href="{{ resources("navigation.links/{$content->id}/delete") }}" class="btn btn-mini btn-danger">
 											Delete
 										</a>

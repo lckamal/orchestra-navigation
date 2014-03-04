@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Orchestra\Support\Facades\Acl;
 use Orchestra\Support\Facades\App;
 use Orchestra\Model\Role;
-class SeedNavigationTable extends Migration {
+class SeednavigationTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -21,15 +21,15 @@ class SeedNavigationTable extends Migration {
 
         $acl->roles()->attach(array($member->name, $admin->name));
         $acl->actions()->attach(array(
-            'Create Navigation', 'Update Navigation', 'Delete Navigation', 'Manage Navigation',
+            'create navigation', 'update navigation', 'delete navigation', 'manage navigation',
         ));
 
         $acl->allow($member->name, array(
-            'Create Navigation', 'Update Navigation', 'Delete Navigation',
+            'create navigation', 'update navigation', 'delete navigation',
         ));
 
         $acl->allow($admin->name, array(
-            'Create Navigation', 'Update Navigation', 'Delete Navigation', 'Manage Navigation',
+            'create navigation', 'update navigation', 'delete navigation', 'manage navigation',
         ));
 	}
 
